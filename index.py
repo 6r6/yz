@@ -15,9 +15,9 @@ import re
 import requests
 
 # (*)腾讯优图配置
-app_id = ''
-secret_id = ''
-secret_key = ''
+app_id = os.environ.get('app_id')
+secret_id = os.environ.get('secret_id')
+secret_key = os.environ.get('secret_key')
 
 # Server酱V3配置
 sckey = ''
