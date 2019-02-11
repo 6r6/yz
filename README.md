@@ -25,7 +25,7 @@ https://service-5ur64h8n-1251079053.ap-shanghai.apigateway.myqcloud.com/release/
 ### 如何部署？
 你需要准备注册[腾讯云](https://console.cloud.tencent.com/scf)和[腾讯优图](https://open.youtu.qq.com/#/open)。
 
-- 下载最新的release压缩包
+- 下载最新的[Release压缩包](https://github.com/6r6/yz/releases)
 - [腾讯云SCF](https://console.cloud.tencent.com/scf)后台新建 > 空白函数 ，函数名请随意，运行环境选择Python36
 - 执行方法填入`index.main_handler`
 - 提交方法选择本地上传ZIP包，上传刚下载的ZIP包
