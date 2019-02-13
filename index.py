@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# 6r6
 
 import os
 import time
@@ -20,7 +19,7 @@ secret_id = os.environ.get('secret_id')
 secret_key = os.environ.get('secret_key')
 
 # Server酱V3配置
-sckey = ''
+sckey = os.environ.get('sckey')
 
 logger = logging.getLogger()
 
@@ -61,7 +60,7 @@ class Youtu(object):
         else:
             return '0'
 
-class SocreQuery:
+class ScoreQuery:
 
     def __init__(self, xm, id, ksbh):
         self.xm = xm
@@ -138,7 +137,7 @@ def main_handler(event, context):
         xm = event['queryString']['xm']
         id = event['queryString']['id']
         kh = event['queryString']['kh']
-        query = SocreQuery(xm,id,kh)
+        query = ScoreQuery(xm,id,kh)
         page = query.get_score_page()
         if '无查询结果' in page:
             logging.info('成绩还没出')
@@ -150,6 +149,7 @@ def main_handler(event, context):
             data['headers']['Content-Type'] = 'text/html'
             data['body'] = score_content
             #query.notice(sckey,'成绩出了',page)
+            #写这段代码的时候，成绩还未公布，并不知道页面结构，所以直接返回表格内容
             return data
         else:
             data['body'] = json.dumps({"Code":103,"Msg":"Unexpected page contents","Request_id":rid})
